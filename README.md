@@ -71,7 +71,7 @@ With this configuration, running `epr open [namespace]` will automatically open 
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [https://github.com/HurgotDev/epr-cli/issues]()
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/HurgotDev/epr-cli/issues)
 
 ## 📝 License
 
