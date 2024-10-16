@@ -7,11 +7,12 @@
     "epr": "./dist/bin/epr.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "shx rm -rf dist/ && tsc & pnpm copy:templates",
     "start": "node dist/bin/epr.js",
     "dev": "ts-node-dev --transpile-only -r tsconfig-paths/register src/bin/epr.ts",
     "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix"
+    "lint:fix": "eslint . --ext .ts --fix",
+    "copy:templates": "mkdir -p dist/templates &&cp -r src/templates dist/"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +30,7 @@
     "@types/prompts": "^2.4.9",
     "@typescript-eslint/eslint-plugin": "^8.9.0",
     "@typescript-eslint/parser": "^8.9.0",
+    "copyfiles": "^2.4.1",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard": "^17.1.0",
@@ -39,6 +41,7 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-promise": "^7.1.0",
     "prettier": "^3.3.3",
+    "shx": "^0.3.4",
     "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.6.3"
