@@ -4,7 +4,7 @@
   "description": "CLI for opening projects and repositories",
   "main": "bin/epr.js",
   "bin": {
-    "epr": "./dist/bin/epr.js"
+    "epr": "./dist/epr.js"
   },
   "scripts": {
     "build": "shx rm -rf dist/ && webpack --mode production && pnpm copy:templates",
