@@ -1,14 +1,14 @@
 {
   "name": "epr-cli",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "CLI for opening projects and repositories",
   "main": "bin/epr.js",
   "bin": {
     "epr": "./dist/epr.js"
   },
   "scripts": {
-    "build": "shx rm -rf dist/ && webpack --mode production && pnpm copy:templates",
-    "start": "node dist/bin/epr.js",
+    "build": "shx rm -rf dist/ && webpack --mode development && pnpm copy:templates",
+    "start": "node dist/epr.js",
     "dev": "ts-node-dev --transpile-only -r tsconfig-paths/register src/bin/epr.ts",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",

@@ -10,7 +10,8 @@ module.exports = {
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src/'),
-    }
+    },
+    extensions: ['.ts', '.js'],
   },
   module: {
     rules: [
@@ -21,10 +22,4 @@ module.exports = {
       }
     ]
   },
-  resolve: {
-    extensions: ['.ts', '.js'],
-    alias: {
-      '@': path.resolve(__dirname, 'src/'),
-    }
-  }
 };
