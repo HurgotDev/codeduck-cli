@@ -4,7 +4,7 @@ import path from "path";
 import colors from "picocolors";
 import inquirer from "inquirer";
 
-import {Config} from "@/types";
+import {Config} from "../types";
 
 const configPath = path.join(__dirname, "..", "..", "config.json");
 

@@ -2,12 +2,12 @@
 
 import {program} from "commander";
 
-import {listProjects, listRepositories, openRepositories} from "@/lib/projects";
-import {configureSettings} from "@/lib/config";
-import {cloneRepository} from "@/lib/repos";
-import {createApp} from "@/lib/app";
+import {listProjects, listRepositories, openRepositories} from "../lib/projects";
+import {configureSettings} from "../lib/config";
+import {cloneRepository} from "../lib/repos";
+import {createApp} from "../lib/app";
 
-program.version("1.1.2").description("CLI for opening projects and repositories");
+program.version("1.2.0").description("CLI for opening projects and repositories");
 
 program.command("config").description("Configure EME settings").action(configureSettings);
 

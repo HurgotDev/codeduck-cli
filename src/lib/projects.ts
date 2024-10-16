@@ -6,8 +6,8 @@ import yaml from "yaml";
 import colors from "picocolors";
 import inquirer from "inquirer";
 
-import {getDirectories} from "@/utils/getDirectories";
-import {expandBasePath} from "@/utils/expandBasePath";
+import {getDirectories} from "../utils/getDirectories";
+import {expandBasePath} from "../utils/expandBasePath";
 
 import {getConfig} from "./config";
 

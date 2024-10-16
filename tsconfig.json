@@ -10,9 +10,6 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "paths": {
-      "@/*": ["*"]
-    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts", "src/templates/**/*"]

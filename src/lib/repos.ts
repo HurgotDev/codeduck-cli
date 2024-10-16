@@ -1,7 +1,7 @@
 import path from "path";
 import {execSync} from "child_process";
 
-import {expandBasePath} from "@/utils/expandBasePath";
+import {expandBasePath} from "../utils/expandBasePath";
 
 import {getConfig} from "./config";
 

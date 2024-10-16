@@ -6,7 +6,7 @@ import color from "picocolors";
 import {glob} from "glob";
 import inquirer from "inquirer";
 
-import {expandBasePath} from "@/utils/expandBasePath";
+import {expandBasePath} from "../utils/expandBasePath";
 
 import {getConfig} from "./config";
 
