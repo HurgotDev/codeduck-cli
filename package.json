@@ -1,6 +1,6 @@
 {
   "name": "epr-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI for opening projects and repositories",
   "main": "bin/epr.js",
   "bin": {
@@ -14,9 +14,24 @@
     "lint:fix": "eslint . --ext .ts --fix",
     "copy:templates": "mkdir -p dist/templates &&cp -r src/templates dist/"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "cli",
+    "project",
+    "repository",
+    "open",
+    "clone",
+    "create"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HurgotDev/epr-cli"
+  },
+  "author": "HurgotDev From e-me",
+  "license": "MIT",
+  "homepage": "https://github.com/HurgotDev/epr-cli#readme",
+  "bugs": {
+    "url": "https://github.com/HurgotDev/epr-cli/issues"
+  },
   "dependencies": {
     "commander": "^12.1.0",
     "glob": "^11.0.0",
