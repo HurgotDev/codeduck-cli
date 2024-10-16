@@ -1,5 +1,5 @@
 {
-  "basePath": "~/projects/eme",
-  "editor": "cursor",
-  "setup": true
+  "basePath": "",
+  "editor": "",
+  "setup": false
 }
