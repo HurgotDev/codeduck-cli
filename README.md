@@ -71,11 +71,11 @@ With this configuration, running `epr open [namespace]` will automatically open 
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page]()
+Contributions, issues, and feature requests are welcome! Feel free to check the [https://github.com/HurgotDev/epr-cli/issues]()
 
 ## 📝 License
 
-This project is [MIT](link-to-license) licensed.
+This project is [MIT](https://github.com/HurgotDev/epr-cli/blob/main/LICENSE) licensed.
 
 ---
 Made with ❤️ by the e-me team
