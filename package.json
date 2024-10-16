@@ -1,6 +1,6 @@
 {
   "name": "epr-cli",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "CLI for opening projects and repositories",
   "main": "bin/epr.js",
   "bin": {
