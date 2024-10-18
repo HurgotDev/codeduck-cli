@@ -61,7 +61,7 @@ export async function createApp() {
       {
         type: "list",
         name: "template",
-        message: "¿Qué plantilla te gustaría usar?",
+        message: "Which template do you want to use?",
         default: 0,
         choices: TEMPLATES,
       },
