@@ -5,8 +5,7 @@ import os from "os";
 import colors from "picocolors";
 import inquirer from "inquirer";
 
-import {expandBasePath} from "utils/expandBasePath";
-
+import {expandBasePath} from "../utils/expandBasePath";
 import {Config} from "../types";
 
 const configDir = path.join(os.homedir(), ".epr-cli");
