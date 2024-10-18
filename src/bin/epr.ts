@@ -9,7 +9,11 @@ import {createApp} from "../lib/app";
 
 program.version("1.2.2").description("CLI for opening projects and repositories");
 
-program.command("config").description("Configure EME settings").action(configureSettings);
+program
+  .command("config")
+  .description("Configure EME settings")
+  .option("--reset", "Reset configuration")
+  .action((options) => configureSettings(options));
 
 program
   .command("open [projectName]")
