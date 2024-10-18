@@ -7,7 +7,7 @@ import {configureSettings} from "../lib/config";
 import {cloneRepository} from "../lib/repos";
 import {createApp} from "../lib/app";
 
-program.version("1.2.2").description("CLI for opening projects and repositories");
+program.version("1.3.0").description("CLI for opening projects and repositories");
 
 program
   .command("config")
