@@ -71,7 +71,7 @@ export async function createApp() {
     const destination = path.join(expandBasePath(config.basePath), app.namespace, app.projectName);
 
     // Copy the template to the destination
-    await cp(path.join(template, "project"), destination, {recursive: true});
+    await cp(path.join(template, "project"), destination, {recursive: true, force: true});
 
     // Get all files from the destination folder
     const files = await glob("**/*", {nodir: true, cwd: destination, absolute: true, dot: true});
@@ -80,7 +80,6 @@ export async function createApp() {
 
     // Replace the placeholder with the actual values
     for await (const file of files) {
-      console.log("[file]", file);
       const data = await readFile(file, "utf8");
       const draft = data
         .replace(/{{projectName}}/g, app.projectName)
