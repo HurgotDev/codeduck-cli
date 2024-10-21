@@ -74,12 +74,13 @@ export async function createApp() {
     await cp(path.join(template, "project"), destination, {recursive: true});
 
     // Get all files from the destination folder
-    const files = await glob("**/*", {nodir: true, cwd: destination, absolute: true});
+    const files = await glob("**/*", {nodir: true, cwd: destination, absolute: true, dot: true});
 
     const sessionTokenName = crypto.randomBytes(16).toString("hex");
 
     // Replace the placeholder with the actual values
     for await (const file of files) {
+      console.log("[file]", file);
       const data = await readFile(file, "utf8");
       const draft = data
         .replace(/{{projectName}}/g, app.projectName)
