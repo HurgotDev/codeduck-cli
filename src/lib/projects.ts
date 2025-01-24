@@ -77,7 +77,12 @@ export async function listRepositories(projectName: string) {
 export function openRepositories(projectName: string, repositories: string[]) {
   const config = getConfig();
   const projectPath = path.join(config.basePath, projectName);
-  const editorCommand = config.editor === "vscode" ? "code" : "cursor";
+  const editorCommands = {
+    vscode: "code",
+    cursor: "cursor",
+    trae: "trae",
+  };
+  const editorCommand = editorCommands[config.editor];
 
   repositories.forEach((repo) => {
     const repoPath = path.join(projectPath, repo);

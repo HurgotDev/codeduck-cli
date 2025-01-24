@@ -60,7 +60,7 @@ export async function configureSettings(options?: {reset: boolean}) {
       type: "list",
       name: "editor",
       message: "Select the code editor:",
-      choices: ["vscode", "cursor"],
+      choices: ["vscode", "cursor", "trae"],
       default: defaultConfig.editor,
     },
   ]);
