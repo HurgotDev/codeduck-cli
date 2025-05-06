@@ -1,6 +1,6 @@
 {
   "name": "codeduck-cli",
-  "version": "2.0.0",
+  "version": "2.0.5",
   "description": "CLI for opening projects and repositories",
   "main": "bin/duck.js",
   "bin": {
@@ -26,16 +26,19 @@
     "type": "git",
     "url": "https://github.com/HurgotDev/codeduck-cli"
   },
-  "author": "HurgotDev From e-me",
+  "author": "HurgotDev",
   "license": "MIT",
   "homepage": "https://github.com/HurgotDev/codeduck-cli#readme",
   "bugs": {
     "url": "https://github.com/HurgotDev/codeduck-cli/issues"
   },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "commander": "^12.1.0",
     "glob": "^11.0.0",
-    "inquirer": "^12.0.0",
+    "inquirer": "^12.6.0",
     "picocolors": "^1.1.0",
     "yaml": "^2.6.0"
   },

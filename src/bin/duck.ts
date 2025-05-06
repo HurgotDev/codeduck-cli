@@ -2,8 +2,7 @@
 
 import {program} from "commander";
 
-import {VERSION} from "lib/constants";
-
+import {VERSION} from "../lib/constants";
 import {listProjects, listRepositories, openRepositories} from "../lib/projects";
 import {configureSettings, listProfiles} from "../lib/config";
 import {cloneRepository} from "../lib/repos";

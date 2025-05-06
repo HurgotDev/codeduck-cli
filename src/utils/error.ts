@@ -4,6 +4,7 @@ export async function errorHandler(fn: () => void | Promise<void>) {
   try {
     await Promise.resolve(fn());
   } catch (error: unknown) {
+    console.log(error);
     if (error instanceof Error) {
       console.error(`\n${colors.red("Error:")} ${error.message}\n`);
     } else {

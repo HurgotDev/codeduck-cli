@@ -6,8 +6,7 @@ import yaml from "yaml";
 import colors from "picocolors";
 import inquirer from "inquirer";
 
-import {resolveProfileName} from "utils/profile";
-
+import {resolveProfileName} from "../utils/profile";
 import {getDirectories} from "../utils/getDirectories";
 import {expandBasePath} from "../utils/expandBasePath";
 
