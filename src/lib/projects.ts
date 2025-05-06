@@ -6,27 +6,51 @@ import yaml from "yaml";
 import colors from "picocolors";
 import inquirer from "inquirer";
 
+import {resolveProfileName} from "utils/profile";
+
 import {getDirectories} from "../utils/getDirectories";
 import {expandBasePath} from "../utils/expandBasePath";
 
 import {getConfig} from "./config";
 
-function getProjects() {
-  const config = getConfig();
+function getProjects(profile: string) {
+  const config = getConfig(profile);
+
+  if (!config) {
+    throw new Error(
+      `Configuration for profile '${profile}' is not set, please run \`duck config --profile ${profile}\` to set it up`,
+    );
+  }
+
   const projectPath = config.basePath;
 
   return getDirectories(projectPath);
 }
 
-function getRepositories(projectName: string) {
-  const config = getConfig();
+function getRepositories(projectName: string, profile: string) {
+  const config = getConfig(profile);
+
+  if (!config) {
+    throw new Error(
+      `Configuration for profile '${profile}' is not set, please run \`duck config --profile ${profile}\` to set it up`,
+    );
+  }
+
   const projectPath = path.join(config.basePath, projectName);
 
   return getDirectories(projectPath);
 }
 
 export async function listProjects() {
-  const projects = getProjects();
+  const profile = resolveProfileName();
+  const projects = getProjects(profile);
+
+  if (projects.length === 0) {
+    throw new Error(
+      `No projects found for profile '${profile}', pelase clone a projects first with \`duck clone\` or create a new project with \`duck create app\``,
+    );
+  }
+
   const {selectedProject} = await inquirer.prompt([
     {
       type: "list",
@@ -39,8 +63,15 @@ export async function listProjects() {
   await listRepositories(selectedProject);
 }
 
-function getDefaultRepositories(projectName: string): string[] {
-  const config = getConfig();
+function getDefaultRepositories(projectName: string, profile: string): string[] {
+  const config = getConfig(profile);
+
+  if (!config) {
+    throw new Error(
+      `Configuration for profile '${profile}' is not set, please run \`duck config --profile ${profile}\` to set it up`,
+    );
+  }
+
   const projectPath = expandBasePath(path.join(config.basePath, projectName));
 
   if (!fs.existsSync(path.join(projectPath, "epr.yml"))) {
@@ -54,13 +85,21 @@ function getDefaultRepositories(projectName: string): string[] {
 }
 
 export async function listRepositories(projectName: string) {
-  const defaultRepositories = getDefaultRepositories(projectName);
+  const profile = resolveProfileName();
 
-  const repositories = getRepositories(projectName).map((repo) => ({
+  const defaultRepositories = getDefaultRepositories(projectName, profile);
+
+  const repositories = getRepositories(projectName, profile).map((repo) => ({
     name: repo,
     value: repo,
     checked: defaultRepositories.includes(repo),
   }));
+
+  if (repositories.length === 0) {
+    throw new Error(
+      `No repositories found for project '${projectName}', please clone a repository first with \`duck clone\` or create a new repository with \`duck create repo\``,
+    );
+  }
 
   const {selectedRepos} = await inquirer.prompt([
     {
@@ -75,7 +114,15 @@ export async function listRepositories(projectName: string) {
 }
 
 export function openRepositories(projectName: string, repositories: string[]) {
-  const config = getConfig();
+  const profile = resolveProfileName();
+  const config = getConfig(profile);
+
+  if (!config) {
+    throw new Error(
+      `Configuration for profile '${profile}' is not set, please run \`duck config --profile ${profile}\` to set it up`,
+    );
+  }
+
   const projectPath = path.join(config.basePath, projectName);
   const editorCommands = {
     vscode: "code",

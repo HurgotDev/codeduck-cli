@@ -7,6 +7,7 @@ import {glob} from "glob";
 import inquirer from "inquirer";
 
 import {expandBasePath} from "../utils/expandBasePath";
+import {resolveProfileName} from "../utils/profile";
 
 import {getConfig} from "./config";
 
@@ -19,7 +20,15 @@ const TEMPLATES = [
 
 export async function createApp() {
   try {
-    const config = getConfig();
+    const profile = resolveProfileName();
+    const config = getConfig(profile);
+
+    if (!config) {
+      throw new Error(
+        `Configuration for profile '${profile}' is not set, please run \`duck config --profile ${profile}\` to set it up`,
+      );
+    }
+
     const app = await inquirer.prompt([
       {
         type: "input",

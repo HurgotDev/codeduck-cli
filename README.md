@@ -1,6 +1,6 @@
-# EPR CLI (Eme Projects CLI)
+# 🦆 Codeduck CLI
 
-EPR CLI is a powerful command-line tool designed to streamline your development workflow by managing and organizing your projects and repositories efficiently.
+Codeduck CLI is a powerful command-line tool designed to streamline your development workflow by managing and organizing your projects and repositories efficiently.
 
 ## 🌟 Features
 
@@ -9,31 +9,51 @@ EPR CLI is a powerful command-line tool designed to streamline your development 
 - 🚀 Quickly open projects and repositories
 - 🔗 Clone repositories from GitHub
 - 🆕 Create new projects from templates
+- 👤 Multiple configuration profiles support
 
 ## 🚀 Getting Started
 
 ### Installation
 
 ```bash
-npm install -g epr-cli
+npm install -g codeduck-cli
 ```
 
 ### Configuration
 
-Before using EPR CLI, configure your settings:
+Before using Codeduck CLI, configure your settings:
 
 ```bash
-epr config
+duck config
 ```
 
 This will prompt you to set up your base path and preferred code editor.
+
+### Profiles
+
+Codeduck CLI supports multiple configuration profiles. By default, it uses the "default" profile. You can:
+
+- List all available profiles:
+```bash
+duck list-profiles
+```
+
+- Use a specific profile by setting the environment variable:
+```bash
+export CODEDUCK_PROFILE=profilename
+```
+
+- Configure a specific profile:
+```bash
+duck config --profile profilename
+```
 
 ## 📚 Commands
 
 ### Open a Project or Repository
 
 ```bash
-epr open [projectName]
+duck open [projectName]
 ```
 
 If `projectName` is provided, it will list repositories within that project. Otherwise, it will list all projects.
@@ -41,43 +61,33 @@ If `projectName` is provided, it will list repositories within that project. Oth
 ### Open a Specific Repository
 
 ```bash
-epr open:repo [projectName] [repositoryName]
+duck open:repo [projectName] [repositoryName]
 ```
 Opens a specific repository in your configured editor.
 
-### Cline a Repository
+### Clone a Repository
 
 ```bash
-epr clone [repoUrl]
+duck clone [repoUrl]
 ```
 Clones a repository from GitHub into your configured project structure.
 
 ### Create a New App
 
 ```bash
-epr create app
+duck create app
 ```
-Initiates a interactive process to create a new application based on available templates.
-
-## 🎨 Customization
-
-You can customize default repositories for a project by creating an `epr.yml` file in the project's namespace folder:
-
-```yaml
-defaultRepositories:
-  - "repositoryName"
-```
-With this configuration, running `epr open [namespace]` will automatically open then specified repositories.
+Initiates an interactive process to create a new application based on available templates.
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/HurgotDev/epr-cli/issues)
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/HurgotDev/codeduck-cli/issues)
 
 ## 📝 License
 
-This project is [MIT](https://github.com/HurgotDev/epr-cli/blob/main/LICENSE) licensed.
+This project is [MIT](https://github.com/HurgotDev/codeduck-cli/blob/main/LICENSE) licensed.
 
 ---
-Made with ❤️ by the e-me team
+Made with ❤️ by [HurgotDev](https://github.com/HurgotDev)
 
 
