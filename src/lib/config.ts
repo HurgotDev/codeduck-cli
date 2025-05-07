@@ -29,7 +29,6 @@ export function getConfig(profile: string): Config | null {
 }
 
 function saveConfig(profile: string, config: Config) {
-  console.log("[profile]", profile);
   const configDir = profile === "default" ? CONFIG_DIR : PROFILES_DIR;
   const configFile =
     profile === "default" ? CONFIG_FILE : path.join(PROFILES_DIR, `${profile}.json`);

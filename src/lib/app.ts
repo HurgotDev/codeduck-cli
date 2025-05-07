@@ -107,7 +107,7 @@ export async function createApp() {
     console.log(`${color.green(`pnpm`)} dev`);
   } catch (error) {
     console.log(error);
-    console.log("\nBye 👋\n");
+    console.log("\nBye 🦆\n");
     process.exit(0);
   }
 }

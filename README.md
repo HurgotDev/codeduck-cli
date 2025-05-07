@@ -48,6 +48,21 @@ export CODEDUCK_PROFILE=profilename
 duck config --profile profilename
 ```
 
+## 📊 Telemetry
+
+Codeduck CLI collects anonymous usage data to improve the tool. The telemetry includes:
+- Commands used
+- CLI version
+- Operating system
+- Node.js version
+
+No sensitive information such as repository paths or project names is collected.
+
+To disable telemetry, set the environment variable:
+```bash
+export CODEDUCK_TELEMETRY=0
+```
+
 ## 📚 Commands
 
 ### Open a Project or Repository
