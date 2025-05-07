@@ -1,6 +1,6 @@
 {
   "name": "codeduck-cli",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "CLI for opening projects and repositories",
   "main": "bin/duck.js",
   "bin": {
@@ -39,8 +39,7 @@
     "commander": "^12.1.0",
     "glob": "^11.0.0",
     "inquirer": "^12.6.0",
-    "picocolors": "^1.1.0",
-    "yaml": "^2.6.0"
+    "picocolors": "^1.1.0"
   },
   "devDependencies": {
     "@types/inquirer": "^9.0.7",

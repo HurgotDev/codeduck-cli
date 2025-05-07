@@ -1,8 +1,6 @@
 import path from "path";
 import {exec} from "child_process";
-import fs from "fs";
 
-import yaml from "yaml";
 import colors from "picocolors";
 import inquirer from "inquirer";
 
@@ -62,36 +60,12 @@ export async function listProjects() {
   await listRepositories(selectedProject);
 }
 
-function getDefaultRepositories(projectName: string, profile: string): string[] {
-  const config = getConfig(profile);
-
-  if (!config) {
-    throw new Error(
-      `Configuration for profile '${profile}' is not set, please run \`duck config --profile ${profile}\` to set it up`,
-    );
-  }
-
-  const projectPath = expandBasePath(path.join(config.basePath, projectName));
-
-  if (!fs.existsSync(path.join(projectPath, "epr.yml"))) {
-    return [];
-  }
-
-  const file = fs.readFileSync(path.join(projectPath, "epr.yml"), "utf8");
-  const data = yaml.parse(file);
-
-  return data.defaultRepositories || [];
-}
-
 export async function listRepositories(projectName: string) {
   const profile = resolveProfileName();
-
-  const defaultRepositories = getDefaultRepositories(projectName, profile);
 
   const repositories = getRepositories(projectName, profile).map((repo) => ({
     name: repo,
     value: repo,
-    checked: defaultRepositories.includes(repo),
   }));
 
   if (repositories.length === 0) {

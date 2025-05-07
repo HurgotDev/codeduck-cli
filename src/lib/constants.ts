@@ -1,7 +1,7 @@
 import os from "os";
 import path from "path";
 
-export const VERSION = "2.0.5";
+export const VERSION = "2.0.6";
 
 export const CONFIG_DIR = path.join(os.homedir(), ".codeduck-cli");
 
