@@ -1,6 +1,6 @@
 {
   "name": "codeduck-cli",
-  "version": "2.0.7",
+  "version": "2.1.0",
   "description": "CLI for opening projects and repositories",
   "main": "bin/duck.js",
   "bin": {

@@ -38,8 +38,8 @@ function getRepositories(projectName: string, profile: string) {
   return getDirectories(projectPath);
 }
 
-export async function listProjects() {
-  const profile = resolveProfileName();
+export async function listProjects(options: {profile?: string}) {
+  const profile = resolveProfileName(options?.profile);
   const projects = getProjects(profile);
 
   if (projects.length === 0) {
@@ -57,11 +57,11 @@ export async function listProjects() {
     },
   ]);
 
-  await listRepositories(selectedProject);
+  await listRepositories(selectedProject, options);
 }
 
-export async function listRepositories(projectName: string) {
-  const profile = resolveProfileName();
+export async function listRepositories(projectName: string, options: {profile?: string}) {
+  const profile = resolveProfileName(options?.profile);
 
   const repositories = getRepositories(projectName, profile).map((repo) => ({
     name: repo,

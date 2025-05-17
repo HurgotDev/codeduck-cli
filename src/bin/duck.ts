@@ -39,14 +39,16 @@ program
 program
   .command("open [projectName]")
   .description("Open a project or repository")
-  .action((projectName) => {
+  .option("--profile <profile>", "Open a project or repository with a specific profile")
+  .action((projectName, options) => {
+    console.log("[options]", options);
     errorHandler(
       withTelemetry(
         async () => {
           if (projectName) {
-            await listRepositories(projectName);
+            await listRepositories(projectName, options);
           } else {
-            await listProjects();
+            await listProjects(options);
           }
         },
         {
