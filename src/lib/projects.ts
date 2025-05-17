@@ -83,11 +83,15 @@ export async function listRepositories(projectName: string, options: {profile?: 
     },
   ]);
 
-  openRepositories(projectName, selectedRepos);
+  openRepositories(projectName, selectedRepos, options);
 }
 
-export function openRepositories(projectName: string, repositories: string[]) {
-  const profile = resolveProfileName();
+export function openRepositories(
+  projectName: string,
+  repositories: string[],
+  options: {profile?: string},
+) {
+  const profile = resolveProfileName(options?.profile);
   const config = getConfig(profile);
 
   if (!config) {

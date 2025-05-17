@@ -41,7 +41,6 @@ program
   .description("Open a project or repository")
   .option("--profile <profile>", "Open a project or repository with a specific profile")
   .action((projectName, options) => {
-    console.log("[options]", options);
     errorHandler(
       withTelemetry(
         async () => {
@@ -64,11 +63,12 @@ program
 program
   .command("open:repo [projectName] [repositoryName]")
   .description("Open a repository")
-  .action((projectName, repositoryName) => {
+  .option("--profile <profile>", "Open a repository with a specific profile")
+  .action((projectName, repositoryName, options) => {
     errorHandler(
       withTelemetry(
         () => {
-          openRepositories(projectName, [repositoryName]);
+          openRepositories(projectName, [repositoryName], options);
         },
         {
           event: "cli_open_repo_command",
